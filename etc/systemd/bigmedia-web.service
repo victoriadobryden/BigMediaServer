@@ -1,0 +1,18 @@
+[Unit]
+Description=Bigmedia web server
+
+[Service]
+ExecStart= /opt/bigmedia/BigmediaServer/bin/www
+WorkingDirectory= /opt/bigmedia/BigmediaServer
+Restart=always
+RestartSec=3
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=bigmedia-web
+#User=bigmedia-web
+#Group=bigmedia-web
+Environment=TZ=/usr/share/zoneinfo/UTC NODE_ENV=production
+EnvironmentFile= /etc/bigmedia-web.conf
+
+[Install]
+WantedBy=multi-user.target
